@@ -98,14 +98,16 @@ function FormValidation() {
     });
   };
 
-const displayError = () => {
-
-}
-
+  const displayError = (fieldName) => {
+    const error = errors[fieldName];
+    if (error != undefined) {
+      return <div className="text-red-400 text-muted">{error}</div>;
+    }
+  };
 
   const displayErrors = () => {
     return Object.entries(errors).map((error, key) => {
-        const [field,message]= error
+      const [field, message] = error;
       return (
         <li key={key} className="font-medium">
           {field} : {message}
@@ -170,7 +172,7 @@ const displayError = () => {
         )}
 
         <h2 className="text-2xl font-bold text-gray-800">Contact Us</h2>
-    
+
         <div>
           <label className="block text-gray-700 font-medium">Name</label>
           <input
@@ -180,6 +182,7 @@ const displayError = () => {
             ref={name}
             className="w-full mt-1 p-2 border rounded-lg"
           />
+          {displayError("name")}
         </div>
 
         <div>
@@ -191,6 +194,7 @@ const displayError = () => {
             ref={email}
             className="w-full mt-1 p-2 border rounded-lg"
           />
+          {displayError("email")}
         </div>
 
         <div>
@@ -202,17 +206,21 @@ const displayError = () => {
             className="w-full mt-1 p-2 border rounded-lg"
             rows="4"
           />
+          {displayError("message")}
         </div>
 
-        <div className="flex items-center">
-          <input
-            type="checkbox"
-            name="accepted"
-            id="accepted"
-            ref={acceptAllConditions}
-            className="mr-2"
-          />
-          <label className="text-gray-700">I accept all conditions</label>
+        <div className=" items-center">
+          <div className="div flex">
+            <input
+              type="checkbox"
+              name="accepted"
+              id="accepted"
+              ref={acceptAllConditions}
+              className="mr-2"
+            />
+            <label className="text-gray-700">I accept all conditions</label>
+          </div>
+          {displayError("acceptAllConditions")}
         </div>
 
         <button
