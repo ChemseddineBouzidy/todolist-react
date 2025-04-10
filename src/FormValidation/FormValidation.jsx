@@ -5,10 +5,10 @@ function FormValidation() {
   const email = useRef();
   const message = useRef();
   const acceptAllConditions = useRef();
-  const [errors, setErrors] = useState([]);
-  //   const [isFormValid, setIsFormValid] = useState(false);
+  const [errors, setErrors] = useState({});
   const [isFormsent, setIsFormSent] = useState(false);
   let isFormValid = true;
+
   const validateForm = () => {
     const nameValue = name.current.value;
     const emailValue = email.current.value;
@@ -19,18 +19,27 @@ function FormValidation() {
     if (nameValue.trim() == "") {
       // name.current.style.border = 'red 1px solid'
       setErrors((prevState) => {
-        return [...prevState, { field: "name", message: " field required" }];
+        return {
+          ...prevState,
+          ...{ name: " field required" },
+        };
       });
       isFormValid = false;
     }
     if (emailValue.trim() == "") {
       // name.current.style.border = 'red 1px solid'
       setErrors((prevState) => {
-        return [...prevState, { field: "email", message: " field required" }];
+        return {
+          ...prevState,
+          ...{ email: " field required" },
+        };
       });
     } else if (!emailValue.match(/^\S+@\S+\.\S+$/)) {
       setErrors((prevState) => {
-        return [...prevState, { field: "email", message: " Format Incorrect" }];
+        return {
+          ...prevState,
+          ...{ email: "Format Incorrect" },
+        };
       });
       isFormValid = false;
     }
@@ -38,15 +47,19 @@ function FormValidation() {
     if (messageValue.trim() == "") {
       // name.current.style.border = 'red 1px solid'
       setErrors((prevState) => {
-        return [...prevState, { field: "message", message: " field required" }];
+        return {
+          ...prevState,
+          ...{ message: " field required" },
+        };
       });
       isFormValid = false;
     }
-    if (!acceptAllConditionsValue) {  
+    if (!acceptAllConditionsValue) {
       setErrors((prevState) => {
-        return [
-          ...prevState,{ field: "acceptAllConditions", message: "The checkbox must be checked " },
-        ];
+        return {
+          ...prevState,
+          ...{ acceptAllConditions: "The checkbox must be checked " },
+        };
       });
       isFormValid = false;
     }
@@ -54,10 +67,10 @@ function FormValidation() {
     return isFormValid;
   };
 
-  // when page update
-  //   useEffect(()=>{
-  //     setIsFormValid(errors.length == 0)
-  //   },[errors])
+  //   when page update
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
 
   const resetform = () => {
     name.current.value = "";
@@ -84,11 +97,18 @@ function FormValidation() {
       acceptAllConditionsValue,
     });
   };
+
+const displayError = () => {
+
+}
+
+
   const displayErrors = () => {
-    return errors.map((error, key) => {
+    return Object.entries(errors).map((error, key) => {
+        const [field,message]= error
       return (
         <li key={key} className="font-medium">
-          {error.field} : {error.message}
+          {field} : {message}
         </li>
       );
     });
@@ -101,7 +121,7 @@ function FormValidation() {
         onSubmit={submitForm}
         className="max-w-xl mt-11 mx-auto p-6 bg-white rounded-2xl shadow-md space-y-6"
       >
-        {errors.length > 0 ? (
+        {Object.keys(errors).length > 0 ? (
           <div
             className="flex p-4 container mx-auto  mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
             role="alert"
@@ -150,38 +170,7 @@ function FormValidation() {
         )}
 
         <h2 className="text-2xl font-bold text-gray-800">Contact Us</h2>
-        {/* {errors.length > 0 ? (
-          <div
-            class="flex p-4 container mx-auto  mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-            role="alert"
-          >
-            <svg
-              class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <span class="sr-only">Danger</span>
-            <div>
-              <span class="font-medium">
-                Ensure that these requirements are met:
-              </span>
-              <ul class="mt-1.5 list-disc list-inside">
-                {errors.map((error, key) => (
-                  <li key={key} className="mt-2 mb-4 text-sm">
-                    {console.log(error)}
-                    {error}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ) : (
-          "true"
-        )} */}
+    
         <div>
           <label className="block text-gray-700 font-medium">Name</label>
           <input
