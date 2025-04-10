@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Layout from "../layout/Layout";
 
 function FormValidationBeginner() {
     const nameField = useRef();
@@ -80,6 +81,7 @@ function FormValidationBeginner() {
     };
 
     return (
+        <>
         <>
         
             <form
@@ -174,6 +176,7 @@ function FormValidationBeginner() {
                     Submit
                 </button>
             </form>
+        </>
         </>
     );
 }
