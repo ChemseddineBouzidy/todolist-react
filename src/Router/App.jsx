@@ -6,6 +6,9 @@ import Home from "../pages/Home";
 import FormValidationBeginner from "../FormValidation/FormValidationBeginner";
 import PageNotFound from "./PageNotFound";
 import Cards from "../Contect APi/Cards";
+import Cars from "../CARS/cars";
+import Mathcalcule from "../useCallback/Mathcalcule.jsx";
+
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
           <Route path="/validation" element={<FormValidationBeginner />} />
           <Route path="/validation-avancee" element={<FormValidation />} />
           <Route path="/cards" element={<Cards />} />
+          <Route path="/cars" element={<Cars />} />
+          <Route path="/math" element={<Mathcalcule />} />
+
         </Route>
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
