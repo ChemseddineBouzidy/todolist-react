@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 
-function Math() {
+function Mathcalcule() {
     const x = 12
     const y = 13
 
@@ -27,4 +27,4 @@ function Math() {
   )
 }
 
-export default Math
+export default Mathcalcule

@@ -19,8 +19,9 @@ const Navbar = () => {
           <Link to='/validation-avancee'  className="text-white hover:text-gray-200 transition duration-300">Validation avancée des formulaires</Link>
           <Link to='/cars'  className="text-white hover:text-gray-200 transition duration-300">Cars List</Link>
           <Link to='/math'  className="text-white hover:text-gray-200 transition duration-300">Math </Link>
+          <Link to='/Memo'  className="text-white hover:text-gray-200 transition duration-300">Expensive Calc </Link>
 
-
+          
 
         </div>
 

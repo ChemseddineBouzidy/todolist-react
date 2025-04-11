@@ -8,6 +8,8 @@ import PageNotFound from "./PageNotFound";
 import Cards from "../Contect APi/Cards";
 import Cars from "../CARS/cars";
 import Mathcalcule from "../useCallback/Mathcalcule.jsx";
+import Memo from "../useMemo/useMemo.jsx";
+
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/cards" element={<Cards />} />
           <Route path="/cars" element={<Cars />} />
           <Route path="/math" element={<Mathcalcule />} />
+          <Route path="/Memo" element={<Memo/>} />
+
 
         </Route>
         <Route path="/*" element={<PageNotFound />} />
