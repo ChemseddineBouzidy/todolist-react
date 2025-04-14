@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UsersContext } from "./UserApp";
+import { Link } from "react-router";
 
 const UsersTable = () => {
   const context = useContext(UsersContext)
@@ -18,6 +19,9 @@ const UsersTable = () => {
               <th scope="col" className="px-6 py-3">
                 country
               </th>
+              <th scope="" className="px-10 py-3">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -30,6 +34,11 @@ const UsersTable = () => {
                   <td className="px-6 py-4">#{user.id}</td>
                   <td className="px-6 py-4">{user.fullname}</td>
                   <td className="px-6 py-4">{user.country}</td>
+                  <td className="px-6 py-4">
+                  <Link className="px-4 py-2 rounded-xl text-white mr-2 bg-blue-700" to={`/user/${user.id}/edit`}>Edit</Link>
+                  <Link className=" py-2 px-2 rounded-xl text-white  bg-blue-700" to={`/user/${user.id}/delete`}>Delete</Link>
+                  </td>
+
                 </tr>
               ))
             ) : (

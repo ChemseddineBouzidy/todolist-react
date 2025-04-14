@@ -5,15 +5,12 @@ const UserAdd = () => {
     const  context = useContext(UsersContext);
     const fullname = useRef(null)
     const country = useRef(null)
-useEffect(()=>{
-console.log(context)
-},[])
+// useEffect(()=>{
+// console.log(context)
+// },[])
     const handleSubmit = (e) =>{
         e.preventDefault()
-        console.log({
-            
-
-        })
+      
         context.addUser({
             payload : {
                 fullname:fullname.current.value,

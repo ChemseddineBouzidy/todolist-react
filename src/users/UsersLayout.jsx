@@ -1,13 +1,18 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext } from "react";
 import UsersTable from "./UsersTable";
 import UserAdd from "./UserAdd";
 import UserEdit from "./UserEdit";
 import { BrowserRouter, Link, Route, Routes, Outlet } from "react-router-dom";
+import { UsersContext } from "./UserApp";
+import UserDelete from "./userDelete";
+
 
 
 
 
 function UsersLayout() {
+
+
   return (
     <>
       <BrowserRouter>
@@ -22,13 +27,16 @@ function UsersLayout() {
           </ul>
         </nav>
 
-        <div className="p-6 bg-gray-100 min-h-screen">
           <Routes>
             <Route index element={<UsersTable />} />
             <Route path={'/user/creat'} element={<UserAdd />} />
+
             <Route path={'/user/:id/edit'} element={<UserEdit />} />
+            <Route path={'/user/:id/delete'} element={<UserDelete />} />
+
+
           </Routes>
-        </div>
+    
       </BrowserRouter>
 
       <Outlet />
