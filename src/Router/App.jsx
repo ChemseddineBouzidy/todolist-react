@@ -9,6 +9,8 @@ import Cards from "../Contect APi/Cards";
 import Cars from "../CARS/cars";
 import Mathcalcule from "../useCallback/Mathcalcule.jsx";
 import Memo from "../useMemo/useMemo.jsx";
+import AxiosApi from "../AxiosApi/AxiosApi.jsx";
+import Userstable from "../useContextUserExample/userstable.jsx";
 
 
 
@@ -24,6 +26,10 @@ function App() {
           <Route path="/cars" element={<Cars />} />
           <Route path="/math" element={<Mathcalcule />} />
           <Route path="/Memo" element={<Memo/>} />
+          <Route path="/axios" element={<AxiosApi />} />
+          <Route path="/users" element={<Userstable />} />
+
+
 
 
         </Route>

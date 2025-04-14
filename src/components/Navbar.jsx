@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../useContextUserExample/UsersContext'; 
+
 
 
 const Navbar = () => {
+  const { user } = useContext(UserContext)
   return (
+
+
+   
     <nav className="bg-gradient-to-r from-blue-500 to-teal-500 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
         {/* Logo Section */}
         <div className="text-white text-xl font-bold">
           <span className="text-2xl">Web3</span> Logo
         </div>
-
+        {user.name}
         {/* Navigation Links */}
         <div className="space-x-6 hidden md:flex">
-
           <Link to='/'  className="text-white hover:text-gray-200 transition duration-300">Home</Link>
           <Link to='/validation'  className="text-white hover:text-gray-200 transition duration-300">Validation form</Link>
           <Link to='/validation-avancee'  className="text-white hover:text-gray-200 transition duration-300">Validation avancée des formulaires</Link>
           <Link to='/cars'  className="text-white hover:text-gray-200 transition duration-300">Cars List</Link>
           <Link to='/math'  className="text-white hover:text-gray-200 transition duration-300">Math </Link>
-          <Link to='/Memo'  className="text-white hover:text-gray-200 transition duration-300">Expensive Calc </Link>
+          <Link to='/axios'  className="text-white hover:text-gray-200 transition duration-300">Axios</Link>
+          <Link to='/users'  className="text-white hover:text-gray-200 transition duration-300">users</Link>
+
 
           
 
@@ -35,6 +42,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+
   );
 }
 
