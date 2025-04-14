@@ -26,9 +26,8 @@ const Navbar = () => {
           <Link to='/math'  className="text-white hover:text-gray-200 transition duration-300">Math </Link>
           <Link to='/axios'  className="text-white hover:text-gray-200 transition duration-300">Axios</Link>
           <Link to='/users'  className="text-white hover:text-gray-200 transition duration-300">users</Link>
+          <Link to='/User-Management'  className="text-white hover:text-gray-200 transition duration-300">User-Management</Link>
 
-
-          
 
         </div>
 

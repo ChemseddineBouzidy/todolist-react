@@ -11,6 +11,7 @@ import Mathcalcule from "../useCallback/Mathcalcule.jsx";
 import Memo from "../useMemo/useMemo.jsx";
 import AxiosApi from "../AxiosApi/AxiosApi.jsx";
 import Userstable from "../useContextUserExample/userstable.jsx";
+import UserApp from "../users/UserApp.jsx";
 
 
 
@@ -28,8 +29,9 @@ function App() {
           <Route path="/Memo" element={<Memo/>} />
           <Route path="/axios" element={<AxiosApi />} />
           <Route path="/users" element={<Userstable />} />
+          <Route path="/User-Management" element={<UserApp />} />
 
-
+          
 
 
         </Route>
